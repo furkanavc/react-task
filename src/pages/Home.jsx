@@ -2,6 +2,18 @@ import React from 'react'
 
 export const Home = () => {
   return (
-    <div className='text-5xl text-red-600'>Home</div>
+    <nav>
+        <ul className='flex space'>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/series">Series</Link>
+          </li>
+          <li>
+            <Link to="/films">Films</Link>
+          </li>
+        </ul>
+      </nav>
   )
 }
