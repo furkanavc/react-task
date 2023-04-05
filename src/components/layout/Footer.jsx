@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react';
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#1A1A1A] space-y-5 py-5 ">
+    <footer className="bg-[#1A1A1A] space-y-5 h-36 flex flex-col justify-center">
       <div className="container space-y-4 flex items-center flex-col  md:items-start ">
         <div className=" flex items-center divide-x">
           <Link className="pr-3 text-sm sm:text-base" to="/">

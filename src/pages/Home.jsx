@@ -17,7 +17,7 @@ export const Home = () => {
     },
   ];
   return (
-    <div className="">
+    <div className="h-[calc(100dvh-224px)]">
       <div className="bg-black/80 px-2 sm:px-0">
         <div className="container py-5">
           <span className="text-xl">Popüler Başlıklar</span>
