@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Icon } from '@iconify/react';
 
 
 export const Footer = () => {
@@ -18,8 +19,8 @@ export const Footer = () => {
           </Link>
         </div>
         <div className="flex space-x-3">
-          <div className="h-5 w-5 bg-red-500 rounded-full"></div>
-          <div className="h-5 w-5 bg-red-500 rounded-full"></div>
+          <Icon icon="ri:facebook-fill" height={36} />
+          <Icon icon="ri:twitter-fill" height={36} />
         </div>
       </div>
     </footer>

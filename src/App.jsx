@@ -3,7 +3,6 @@ import { Home } from './pages/Home'
 import Layout from "./pages/Layout";
 import { Series } from './pages/Series'
 import { Films } from './pages/Films'
-import { Icon } from '@iconify/react';
 
 function App() {
 
