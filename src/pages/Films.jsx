@@ -8,7 +8,7 @@ export const Films = () => {
     {Sample.entries.filter(i=>i.programType === 'movie').map((e) => (
       <div
         to={e.path}
-        key={e.id}
+        key={e.title}
         className="flex flex-col space-y-4 items-center w-full"
       >
         <div className="rounded-lg border border-black h-56 w-56 md:w-full">
