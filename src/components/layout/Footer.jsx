@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 export const Footer = () => {
   return (
     <footer className="bg-[#1A1A1A] space-y-5 py-5 ">
