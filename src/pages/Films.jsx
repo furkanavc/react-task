@@ -10,6 +10,7 @@ export const Films = () => {
   const [filteredText, setFilteredText] = useState("");
   const filteredData = data
   .filter((e) => {
+    // filter movies and check if input is not empty so we can filter all movie data instead of 18
     if(e.programType === "movie" && filteredText){
         return e.title.toLowerCase().includes(filteredText);
     }
@@ -63,6 +64,7 @@ export const Films = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {/* if data is not filtered takes first 18 */}
         {(filteredText ? filteredData : data.filter(e => e.programType === 'movie').slice(0,18))
           .map((e) => (
             <div
