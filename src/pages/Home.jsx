@@ -20,7 +20,7 @@ export const Home = () => {
     <div className="h-[calc(100dvh-224px)]">
       <div className="bg-black/80 px-2 sm:px-0">
         <div className="container py-5">
-          <span className="text-xl">Popüler Başlıklar</span>
+          <span className="text-xl text-white">Popüler Başlıklar</span>
         </div>
       </div>
       <div className="container grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 my-10">
@@ -30,7 +30,7 @@ export const Home = () => {
             key={e.id}
             className="flex flex-col space-y-4 items-center w-full"
           >
-            <div className="rounded-lg border border-black h-56 w-56 md:w-full">
+            <div className="rounded-lg border border-black h-56 w-56 md:w-full overflow-hidden">
               <img
                 src={e.img}
                 alt={e.name}

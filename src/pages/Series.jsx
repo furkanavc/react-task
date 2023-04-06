@@ -71,7 +71,7 @@ export const Series = () => {
               key={e.title}
               className="flex flex-col space-y-4 items-center w-full"
             >
-              <div className="rounded-lg border border-black h-56 w-56 md:w-full">
+              <div className="rounded-lg border border-black h-56 w-56 md:w-full overflow-hidden">
                 <img
                   src={e.images["Poster Art"].url}
                   alt={e.title}
