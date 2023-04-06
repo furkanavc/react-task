@@ -18,7 +18,7 @@ export const Footer = () => {
             Gizlilik Sözleşmesi
           </Link>
         </div>
-        <div className="flex space-x-3">
+        <div className="flex space-x-3 ">
           <Icon icon="ri:facebook-fill" height={36} />
           <Icon icon="ri:twitter-fill" height={36} />
         </div>

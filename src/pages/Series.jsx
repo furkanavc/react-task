@@ -15,7 +15,6 @@ export const Series = () => {
     }
   })
   useEffect(() => {
-    // if filter input is not empty do sorting in all data else sort only in first 18 data
     let tempData =  [...Sample.entries] 
     if (sortType === "ascending") {
       // sort ascending
@@ -45,7 +44,7 @@ export const Series = () => {
           type="text"
           name="filterseries"
           className="border border-slate-500 rounded-2xl w-full md:w-1/3 py-5 px-4 "
-          placeholder="Film ara"
+          placeholder="Dizi ara"
         />
 
         <div className="flex items-center w-full lg:w-1/5 relative">
