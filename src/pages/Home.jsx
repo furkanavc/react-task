@@ -37,7 +37,7 @@ export const Home = () => {
                 className="w-full h-full object-contain lg:object-cover"
               />
             </div>
-            <span className="text-black">{e.name}</span>
+            <span className="">{e.name}</span>
           </Link>
         ))}
       </div>

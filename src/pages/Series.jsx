@@ -44,7 +44,7 @@ export const Series = () => {
           onChange={filterSeries}
           type="text"
           name="filterseries"
-          className="border border-slate-500 rounded-2xl w-full md:w-1/3 py-5 px-4 text-black"
+          className="border border-slate-500 rounded-2xl w-full md:w-1/3 py-5 px-4 "
           placeholder="Film ara"
         />
 
@@ -52,7 +52,7 @@ export const Series = () => {
           <select
             defaultValue={"default"}
             onChange={(e) => setSortType(e.target.value)}
-            className="border border-slate-500 p-5 rounded-2xl w-full text-black"
+            className="border border-slate-500 p-5 rounded-2xl w-full "
           >
             <option value="default" disabled>
               Sırala
@@ -78,7 +78,7 @@ export const Series = () => {
                   className="w-full h-full object-contain lg:object-cover"
                 />
               </div>
-              <span className="text-black">{e.title}</span>
+              <span className="">{e.title}</span>
             </div>
           ))}
       </div>

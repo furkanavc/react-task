@@ -18,7 +18,7 @@ export const Films = () => {
             className="w-full h-full object-contain lg:object-cover"
           />
         </div>
-        <span className="text-black">{e.title}</span>
+        <span className="">{e.title}</span>
       </div>
     ))}
   </div>
