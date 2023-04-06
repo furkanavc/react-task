@@ -1,45 +1,42 @@
 import React from "react";
 import Sample from "../assets/data/sample.json";
-import { useState } from "react";
-import { Icon } from '@iconify/react';
+import { useState, useEffect } from "react";
 
 export const Series = () => {
-  const selectBox = [
-    {
-      value: "1",
-      desc: "Yeniye Göre Sırala",
-    },
-    {
-      value: "2",
-      desc: "Eskiye Göre Sırala",
-    },
-    {
-      value: "3",
-      desc: "Puana Göre Sırala",
-    },
-    {
-      value: "4",
-      desc: "Rastgele Sırala",
-    },
-  ];
 
-  const [filteredList, setFilteredList] = useState("");
-  const [checkBoxVal, setCheckBoxVal] = useState("");
-  const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [data, setData] = useState(Sample.entries);
+  const [sortProperty, setSortProperty] = useState("releaseYear");
+  const [sortType, setSortType] = useState("random");
+  const [filteredText, setFilteredText] = useState("");
+  const filteredData = data
+  .filter((e) => {
+    if(e.programType === "series" && filteredText){
+        return e.title.toLowerCase().includes(filteredText);
+    }
+  })
+  useEffect(() => {
+    // if filter input is not empty do sorting in all data else sort only in first 18 data
+    let tempData =  [...Sample.entries] 
+    if (sortType === "ascending") {
+      // sort ascending
+      tempData = tempData.sort((a, b) => b[sortProperty] - a[sortProperty]);
+    } else if (sortType === "descending") {
+      // sort descending
+      tempData = tempData.sort((a, b) => a[sortProperty] - b[sortProperty]);
+    } else {
+      // if its random bring not sorted data
+      tempData;
+    }
+    setData(tempData);
+  }, [sortType]);
 
-  const handleToggle = () => {
-    setToggleDropdown((current) => !current);
-  };
   const filterSeries = (e) => {
     if (e.target.value.length >= 3) {
-      setFilteredList(e.target.value);
-    } else if (e.target.value.length === 0) {
-      setFilteredList(e.target.value);
-    }
+      setFilteredText(e.target.value);
+    } else 
+      setFilteredText('');
   };
-  const compare = (a, b) => {
-    return a.releaseYear - b.releaseYear;
-  };
+
   return (
     <div className="container  my-10 px-2">
       <div className="flex w-full justify-between flex-col space-y-5 lg:flex-row lg:space-y-0 py-5">
@@ -52,34 +49,22 @@ export const Series = () => {
         />
 
         <div className="flex items-center w-full lg:w-1/5 relative">
-          <div
-            onClick={handleToggle}
-            className=" border border-slate-500 p-5 rounded-2xl w-full z-20 bg-white flex justify-between"
+          <select
+            defaultValue={"default"}
+            onChange={(e) => setSortType(e.target.value)}
+            className="border border-slate-500 p-5 rounded-2xl w-full text-black"
           >
-            <span className="text-black">
-            Sıralama
-            </span>
-            <Icon icon="carbon:chevron-down" height={24} />
-
-          </div>
-          {toggleDropdown === false && (
-            <div className="flex flex-col divide-y pt-7 absolute top-10 left-0  border border-slate-500 rounded-2xl w-full bg-white z-10">
-              {selectBox.map((e,i) => (
-                <span key={i} className="text-black px-5 py-2">{e.desc}</span>
-              ))}
-            </div>
-          )}
+            <option value="default" disabled>
+              Sırala
+            </option>
+            <option value="ascending">Yeniye Göre Sırala</option>
+            <option value="descending">Eskiye Göre Sırala</option>
+            <option value="random">Rastgele Sırala</option>
+          </select>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        {Sample.entries
-          .filter((i) => i.programType === "series")
-          .filter((i) => {
-            return filteredList.toLowerCase() === ""
-              ? i
-              : i.title.toLowerCase().includes(filteredList);
-          })
-          .sort(compare)
+        {(filteredText ? filteredData : data.filter(e => e.programType === 'series').slice(0,18))
           .map((e) => (
             <div
               to={e.path}
